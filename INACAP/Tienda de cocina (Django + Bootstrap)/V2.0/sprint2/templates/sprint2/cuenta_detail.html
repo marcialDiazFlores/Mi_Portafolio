@@ -1,0 +1,23 @@
+{% extends "sprint2/base.html" %}
+
+{% block title %}Tienda - Detalle Cuenta{% endblock title %}
+
+{% block content %}
+<h1>cuenta: {{cuenta.nombre}} {{cuenta.apellido}}</h1>
+<hr />
+
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{cuenta.nombre}} {{cuenta.apellido}}</h5>
+        <p class="card-text">
+          <p><strong>Id: </strong>{{cuenta.id}}</p>
+          <p><strong>Fecha Nac.: </strong>{{cuenta.fecha_nac}}</p>
+          <p><strong>Correo: </strong>${{cuenta.correo}}</p>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

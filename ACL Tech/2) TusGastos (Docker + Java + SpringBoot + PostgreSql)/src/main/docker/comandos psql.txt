@@ -1,0 +1,8 @@
+1) Abrir consola dentro del contenedor:
+
+docker exec -it db bash
+
+2) Abrir psql desde la consola:
+
+psql -h localhost -U compose-postgres
+

@@ -1,0 +1,25 @@
+{% extends "sprint2/base.html" %}
+
+{% block title %}Tienda - Detalle Categoria{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="card text-white bg-primary mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-10">
+                <div class="card-body">
+                  <h1>{{categoria.nombre}}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

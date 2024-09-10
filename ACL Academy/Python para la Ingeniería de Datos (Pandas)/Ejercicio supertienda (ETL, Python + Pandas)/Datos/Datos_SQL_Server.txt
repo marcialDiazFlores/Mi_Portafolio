@@ -1,0 +1,47 @@
+Servidor: mssql-171691-0.cloudclusters.net
+Puerto: 15677
+User: etl_svcaccount
+Password: D3v.2024
+Database: SuperTienda
+
+Query 1:
+SELECT *
+FROM [Pedidos Detalles] AS pd
+INNER JOIN [Pedidos] AS p
+ON p.[ID Pedido] = pd.[ID Pedido]
+INNER JOIN Clientes AS c
+ON c.[ID Cliente] = p.[Cliente ID]
+INNER JOIN Segmentos AS s
+ON s.[ID Segmento] = c.[ID Segmento]
+
+Query 2:
+SELECT *
+FROM [Sub-Categorias] AS scat
+INNER JOIN Categorias AS cat
+ON cat.[ID Categoria] = scat.[ID Categoria]
+
+
+#Conector: mssql+pymssql
+server = 'mssql-171691-0.cloudclusters.net'
+port = '15677'
+database = 'SuperTienda'
+username = 'etl_svcaccount'
+password = 'D3v.2024'
+
+sqlalchemy.engine = create_engine( f"mssql+pymssql://{username}:{password}@{server}:{port}/{database}" )
+
+
+
+#Conector: mssql+pyodbc
+server = 'mssql-171691-0.cloudclusters.net'
+port = '15677'
+database = 'SuperTienda'
+username = 'etl_svcaccount'
+password = 'D3v.2024'
+
+sqlalchemy.engine = create_engine(
+    f"mssql+pyodbc://{username}:{password}@{server}:{port}/{database}"
+    "?driver=ODBC+Driver+17+for+SQL+Server"
+    "&TrustServerCertificate=yes"
+    "&Encrypt=yes"
+)

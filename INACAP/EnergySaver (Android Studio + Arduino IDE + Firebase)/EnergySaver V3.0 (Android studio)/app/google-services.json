@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "428870627936",
+    "project_id": "energysaver-b3f73",
+    "storage_bucket": "energysaver-b3f73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428870627936:android:953c32454e4de927a60905",
+        "android_client_info": {
+          "package_name": "com.example.energysaver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvO8NRf3MeVd4wAnXvjVGKYP0DIRyuU3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

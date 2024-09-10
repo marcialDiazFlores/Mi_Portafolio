@@ -1,0 +1,327 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  {% block head %}
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kitchen Supplies</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Enlace a tu hoja de estilo personalizada -->
+    <link rel="stylesheet" href="{% static 'Sprint1/css/navbar.css' %}" />
+    <!-- Estilos CSS personalizados -->
+    <style>
+      /* Estilo para imágenes redondas */
+
+      body {
+        background-image: url("https://img.freepik.com/free-photo/abstract-pastel-blue-paint-brushstroke-textured-background_53876-108403.jpg?w=740&t=st=1682004679~exp=1682005279~hmac=c8eaf54329082a4ccc08bbda282186da5b9c5702f9fdf856f13b95622b970cff");
+        background-repeat: repeat;
+      }
+
+      .rounded-images-container {
+        display: flex;
+        justify-content: center;
+        background-color: #0359b462;
+        padding: 10px;
+        max-height: 277px;
+        margin-top: 50px;
+      }
+
+      .rounded-image {
+        border-radius: 50%;
+        width: 205px;
+        height: 200px;
+        margin: 10px;
+        margin-right: 40px;
+      }
+
+      .rounded-image p {
+        text-align: center;
+      }
+
+      /* Estilo para el botón de retorno al navbar */
+      #returnToTop {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #0359b462;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+
+      /* Estilo para el espacio del texto de explicación */
+      .explanation {
+        text-align: center;
+        padding: 20px;
+        font-size: 1.2em;
+        width: 60%;
+        color: #fff;
+        background-color: #0359b4; /* Fondo azul oscuro */
+        border-radius: 10px; /* Bordes redondeados */
+        margin: 20px auto; /* Espaciado exterior */
+        margin-top: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+      }
+
+      /* Estilo para el párrafo dentro de explanation */
+      .explanation p {
+        margin-bottom: 10px;
+      }
+
+      .explanation a {
+        margin-top: 10px;
+      }
+
+      .pagination {
+        text-align: center;
+      }
+
+      .sub-text {
+        margin-right: 30px;
+        margin-top: 5px;
+      }
+
+      hr {
+        background-color: black;
+      }
+
+      .description {
+        font-size: 90%;
+      }
+
+      .nav-link:hover {
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+      }
+
+      .dropdown-item:hover {
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+      }
+
+      #cat:hover {
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  {% endblock %}
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="{% url 'index' %}">Kitchen Supplies</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarMenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}" style="color: #fff"
+              >Inicio</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="catalogoDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style="color: #fff"
+            >
+              Catálogo
+            </a>
+            <div class="dropdown-menu" aria-labelledby="catalogoDropdown">
+              <a class="dropdown-item" href="{% url 'productos' %}"
+                >Productos</a
+              >
+              <a class="dropdown-item" href="{% url 'categorias' %}"
+                >Categorías</a
+              >
+            </div>
+          </li>
+          <li class="nav-item">
+            <a style="color: #fff" class="nav-link" href="{% url 'buscar' %}"
+              >Buscar productos</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              style="color: #fff"
+              class="nav-link"
+              href="{% url 'formcontacto' %}"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    {% block content %}
+
+    <!-- Espacio para el texto de explicación -->
+    <div class="explanation">
+      <p style="font-weight: bold">¡Hola!</p>
+      <hr />
+      <p class="description">
+        Bienvenid@ a nuestro sitio web de venta de artículos de cocina 🧑‍🍳, aquí
+        encontrarás artículos y repuestos de cocina, además de vestimenta para
+        personal de cocina.
+      </p>
+      <p></p>
+      <p class="description">
+        Para ir a cualquiera de las 5 secciones del sitio web haz click en la
+        imagen correspondiente.
+      </p>
+    </div>
+
+    <!-- Imágenes redondas con enlaces al catálogo -->
+    <div class="rounded-images-container">
+      <div style="text-align: center">
+        <a href="{% url 'productos-categoria' %}?cod_categoria=1">
+          <img
+            class="rounded-image"
+            src="{% static 'Sprint2/images/articulo_cocina.jpg' %}"
+            alt="Artículo de cocina"
+          />
+        </a>
+        <p class="sub-text">Venta de artículos de cocina</p>
+      </div>
+
+      <div style="text-align: center">
+        <a href="{% url 'productos-categoria' %}?cod_categoria=2">
+          <img
+            class="rounded-image"
+            src="{% static 'Sprint2/images/repuestos_cocina.jpg' %}"
+            alt="Repuestos de cocina"
+          />
+        </a>
+        <p class="sub-text">Venta de repuestos de cocina</p>
+      </div>
+
+      <div style="text-align: center">
+        <a href="{% url 'productos-categoria' %}?cod_categoria=3">
+          <img
+            class="rounded-image"
+            src="{% static 'Sprint2/images/vestimenta_cocinero.jpg' %}"
+            alt="Vestimenta de cocinero"
+          />
+        </a>
+        <p class="sub-text">Venta de vestimenta</p>
+      </div>
+
+      <div style="text-align: center">
+        <a href="{% url 'productos-categoria' %}?cod_categoria=4">
+          <img
+            class="rounded-image"
+            src="{% static 'Sprint2/images/cafetera_goteo.jpeg' %}"
+            alt="Vestimenta de cafeteras"
+          />
+        </a>
+        <p class="sub-text">Venta de cafeteras</p>
+      </div>
+
+      <div style="text-align: center">
+        <a href="{% url 'productos-categoria' %}?cod_categoria=5">
+          <img
+            class="rounded-image"
+            src="{% static 'Sprint2/images/batidora_pedestal.jpg' %}"
+            alt="Vestimenta de batidoras"
+          />
+        </a>
+        <p class="sub-text">Venta de batidoras</p>
+      </div>
+    </div>
+
+    {% endblock %}
+    <!-- {% block pagination %} {% if is_paginated %}
+    <div class="pagination">
+      <span class="page-links">
+        {% if page_obj.has_previous %}
+        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}"
+          >Anterior</a
+        >
+        {% endif %}
+        <span class="page-current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}"
+          >Siguiente</a
+        >
+        {% endif %}
+      </span>
+    </div>
+    {% endif %} {% endblock pagination %} -->
+
+    <!-- Botón para volver al navbar -->
+    <button id="returnToTop" onclick="scrollToTop()">↑</button>
+
+    <!-- Enlace a Bootstrap JS y jQuery para el comportamiento del menú desplegable -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Script para mostrar/ocultar el botón de retorno al navbar -->
+    <script>
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          document.getElementById("returnToTop").style.display = "block";
+        } else {
+          document.getElementById("returnToTop").style.display = "none";
+        }
+      }
+
+      function scrollToTop() {
+        // Ajusta la velocidad modificando la duración (en milisegundos) y el número de cuadros por segundo
+        const duration = 500; // Duración de la animación en milisegundos
+        const framesPerSecond = 60; // Número de cuadros por segundo
+        const initialPosition = window.scrollY;
+        const distanceToTop = 0 - initialPosition;
+        const frames = Math.ceil((duration / 1000) * framesPerSecond);
+
+        function animateScroll(currentFrame) {
+          const percentageComplete = currentFrame / frames;
+          const newPosition =
+            initialPosition + distanceToTop * easeInOut(percentageComplete);
+          window.scrollTo(0, newPosition);
+
+          if (currentFrame < frames) {
+            requestAnimationFrame(function () {
+              animateScroll(currentFrame + 1);
+            });
+          }
+        }
+
+        animateScroll(0);
+      }
+
+      // Función de aceleración/desaceleración para una transición suave
+      function easeInOut(t) {
+        return t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+{% extends "sprint2/base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row justify-content-center text-center my-4">
+    <div class="col-lg-3 shadow-lg rounded mb-5 mt-1">
+        <h2 class="bg-primary bg-gradient text-white p-3 text-center rounded" style="font-size: 140%;">Formulario de Contacto</h2>
+        <form action="" method="post" class="col-12 bg-light bg-gradient p-2">
+            {% csrf_token %}
+            {% for campo in form %}
+              {% if campo.field.widget.input_type == "checkbox" %}
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="check_cc" name="{{campo.name}}">
+                  <label class="form-check-label" for="check_cc">CC a Mi</label>
+                </div>           
+              {% else %}
+                <div class="mb-4">
+                  <label for="" class="form-label" style="margin-bottom: 15px;">{{campo.label}}</label>
+                  <input type="{{ campo.field.widget.input_type}}"
+                    class="form-control" 
+                    name="{{campo.name}}"
+                    aria-describedby="{{campo.name}}Help"
+                    placeholder="Ingrese {{campo.label}}"
+                    value =""/>                  
+                </div>
+                <div class="col-12 help-text">{{campo.errors}}</div>
+              {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-primary my-2">Submit</button>
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

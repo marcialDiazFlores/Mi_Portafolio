@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de gastos</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}"/>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/black-line-background-vector-beige_53876-126677.jpg?w=996&t=st=1706152773~exp=1706153373~hmac=fc222b7ec8c33315a1768009867e17aac54bbc46a6a577a47d3eb2173f73dff8");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+        .card {
+            background-image: url("https://img.freepik.com/free-vector/soft-yellow-watercolor-simple-texture-background-vector_1055-13125.jpg?w=826&t=st=1706154002~exp=1706154602~hmac=4f9186e2fce8431f6d06c8326a49eee457b5ac386907445a7baf756932dfb9d9");
+            background-size: cover;
+            height: 100%;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div class="row align-items-start" style="min-height: 100vh">
+        <div class="col-md-12">
+            <div class="card mt-5 rounded">
+                <div class="card-body">
+                    <h2 class="card-title mt-3 mb-5">¡Hola <span th:text="${usuarioNombre}"></span>! Aquí puedes gestionar tus gastos</h2>
+
+                    <div th:if="${mensaje}" class="alert alert-success text-center mt-5">
+                        [[${mensaje}]]
+                    </div>
+                    <div th:if="${listaGastos.isEmpty()}">
+                        <p>No hay gastos disponibles.</p>
+                    </div>
+                    <div th:unless="${listaGastos.isEmpty()}">
+                        <table class="table table-bordered mt-5 mb-4">
+                            <thead class="table-dark">
+                            <tr>
+                                <th>Descripcion</th>
+                                <th>Monto</th>
+                                <th>Fecha</th>
+                                <th>Categoria</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <th:block th:each="gasto : ${listaGastos}">
+                                <tr>
+                                    <td class="align-middle">[[${gasto.descripcion}]]</td>
+                                    <td class="align-middle">$[[${gasto.monto}]]</td>
+                                    <td class="align-middle">
+                                        <span th:text="${#dates.format(gasto.fecha, 'dd-MM-yyyy')}"></span>
+                                    </td>
+                                    <td class="align-middle">[[${gasto.categoria}]]</td>
+                                    <td>
+                                        <a class="btn btn-success btn-sm" th:href="@{'/gastos/editar/' + ${gasto.id}}">Editar</a>
+                                        <a class="btn btn-danger btn-sm" th:href="@{'/gastos/eliminar/' + ${gasto.id}}">Eliminar</a>
+                                    </td>
+                                </tr>
+                            </th:block>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <a class="btn btn-primary mt-4" th:href="@{/gastos/nuevo}">Añadir un gasto</a>
+                        <a class="btn btn-danger mt-4" th:href="@{/login}">Cerrar sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

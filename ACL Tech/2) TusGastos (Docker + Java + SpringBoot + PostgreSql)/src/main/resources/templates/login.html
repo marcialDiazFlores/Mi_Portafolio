@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}"/>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/black-line-background-vector-beige_53876-126677.jpg?w=996&t=st=1706152773~exp=1706153373~hmac=fc222b7ec8c33315a1768009867e17aac54bbc46a6a577a47d3eb2173f73dff8");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        .card {
+            background-image: url("https://img.freepik.com/free-vector/soft-yellow-watercolor-simple-texture-background-vector_1055-13125.jpg?w=826&t=st=1706154002~exp=1706154602~hmac=4f9186e2fce8431f6d06c8326a49eee457b5ac386907445a7baf756932dfb9d9");
+            background-size: cover;
+            width: 100%;
+            border: 1px solid #000;
+            border-radius: 15px; /* Añade esquinas redondeadas */
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: -100px;
+        }
+        form {
+            background-image: url("https://img.freepik.com/free-photo/abstract-pastel-blue-paint-brushstroke-textured-background_53876-108403.jpg?w=996&t=st=1706155825~exp=1706156425~hmac=b1626b715bd0c3bed080e31e0f18ef10a8d737855d1e0c4b5a28d06bb2b08aab");
+            background-size: cover;
+            height: 100%;
+            border: 1px solid #000;
+        }
+
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-start mt-5" style="min-height: 100vh">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <h2 class="mt-5 mb-2">¡Bienvenido a TusGastos!</h2>
+            </div>
+            <div th:if="${mensaje}" class="alert alert-success text-center mt-3">
+                [[${mensaje}]]
+            </div>
+            <div th:if="${error}" class="alert alert-danger text-center mt-2">
+                [[${error}]]
+            </div>
+            <div class="card mt-5 rounded">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h2 class="card-title mt-3 mb-2">Iniciar sesión</h2>
+                    </div>
+                    <form class="form mt-5 mb-4" th:action="@{/login}" method="post" th:object="${perfil}">
+                        <div class="border border-secondary rounded p-3">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Email:</label>
+                                <div class="col-sm-8">
+                                    <input type="email" th:field="*{email}" class="form-control" required minlength="8" maxlength="45"
+                                           placeholder="Ingrese su correo electrónico"
+                                           oninvalid="this.setCustomValidity('Ingrese un email válido')"
+                                           oninput="limpiarMensajeError(this)"/>
+                                </div>
+                                <label class="col-sm-4 col-form-label">Contraseña:</label>
+                                <div class="col-sm-8">
+                                    <input type="password" th:field="*{contrasena}" class="form-control" required minlength="5" maxlength="15"
+                                           placeholder="Ingrese su contraseña"
+                                           oninvalid="this.setCustomValidity('Ingrese una contraseña válida')"
+                                           oninput="limpiarMensajeError(this)"/>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary mt-4">Iniciar sesión</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    // Función para limpiar mensajes de error al cambiar el contenido de un campo
+    function limpiarMensajeError(input) {
+        input.setCustomValidity('');
+        input.reportValidity();
+    }
+
+    // Evento que se dispara al cambiar el contenido de un campo
+    document.addEventListener('input', function(event) {
+        if (event.target.tagName.toLowerCase() === 'input') {
+            limpiarMensajeError(event.target);
+        }
+    });
+</script>

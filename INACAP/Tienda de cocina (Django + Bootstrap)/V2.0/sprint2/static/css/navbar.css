@@ -1,0 +1,17 @@
+/* static/css/navbar.css */
+
+.navbar {
+    background-color: #007bff; /* Fondo azul */
+}
+
+.navbar-toggler-icon {
+    background-color: #fff; /* Icono de desplegar en blanco */
+}
+
+.navbar-toggler {
+    border-color: #fff; /* Borde del botón en blanco */
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff !important; /* Texto en blanco */
+}

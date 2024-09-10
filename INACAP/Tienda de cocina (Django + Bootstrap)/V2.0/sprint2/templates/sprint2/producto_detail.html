@@ -1,0 +1,30 @@
+{% extends "sprint2/base.html" %}
+
+{% block title %}Tienda - Productos{% endblock title %}
+
+{% block content %}
+  <h1 style="margin-top: 15px; margin-left: 12px;">Producto: {{producto.nombre}}</h1>
+  <hr />
+
+  <div class="card mb-1 mx-auto" style="max-width: 700px; margin-top: 80px;">
+    <div class="row g-0">
+      <div class="col-md-6">
+        {% if producto.imagen %}
+          <img src="{{producto.imagen.url}}" class="card-img-top" alt="...">
+        {% else %}
+          <img src="https://unsplash.it/200/300/?randomproducto.imagen.url" class="card-img-top" alt="...">  
+        {% endif %}
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">{{producto.nombre}}</h5>
+          <p></p>
+          <p><strong>Stock: </strong>{{producto.stock}}</p>
+          <p><strong>Precio: </strong>${{producto.precio}}</p>
+          <p><strong>Descripción: </strong>{{producto.descripcion}}</p>
+          <p class="card-text"><small class="text-muted">Categoría: {{producto.categoria}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

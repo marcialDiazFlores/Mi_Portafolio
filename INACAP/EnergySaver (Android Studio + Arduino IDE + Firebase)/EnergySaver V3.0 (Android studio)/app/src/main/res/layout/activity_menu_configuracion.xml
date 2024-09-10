@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9EBFE2"
+    android:orientation="vertical"
+    tools:context=".MenuConfiguracion"
+    android:padding="30dp">
+
+    <!-- Botón de ver cuentas de usuario -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/configuracion"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginLeft="130dp"
+        android:background="@drawable/settings" />
+
+    <Button
+        android:id="@+id/btnCuentasUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="82dp"
+        android:text="Ver cuentas de usuario" />
+
+    <!-- Botón de cerrar sesión -->
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="100dp"
+        android:text="Cerrar Sesión" />
+
+    <!-- Botón para Volver -->
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/volver" />
+
+</LinearLayout>

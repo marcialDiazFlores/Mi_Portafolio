@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/icon_energy"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/icon_energy_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.EnergySaver"
+        tools:targetApi="31">
+        <activity
+            android:name=".ListadoDispositivos"
+            android:exported="false" />
+        <activity
+            android:name=".GestionarDispositivos"
+            android:exported="false" />
+        <activity
+            android:name=".BuscarDispositivos"
+            android:exported="false" />
+        <activity
+            android:name=".GestionarHabitaciones"
+            android:exported="false" />
+        <activity
+            android:name=".BuscarHabitacion"
+            android:exported="false" />
+        <activity
+            android:name=".ListadoHabitaciones"
+            android:exported="false" />
+        <activity
+            android:name=".MenuHabitaciones"
+            android:exported="false" />
+        <activity
+            android:name=".MenuDispositivos"
+            android:exported="false" />
+        <activity
+            android:name=".Habitaciones"
+            android:exported="false" />
+        <activity
+            android:name=".MenuConfiguracion"
+            android:exported="false" />
+        <activity
+            android:name=".MenuInicial"
+            android:exported="false" />
+        <activity
+            android:name=".Registrar"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

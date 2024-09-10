@@ -1,0 +1,47 @@
+{% extends "sprint2/base.html" %} {% block title %}<title>
+  Tienda de Productos - Mensajes del Formulario</title
+>{% endblock %} {% block content %}
+
+<style>
+  .table td {
+    background-color: #FFD580;
+  }
+</style>
+<div class="container-fluid">
+  <div class="row justify-content-center text-center my-4">
+    <div class="col-lg-9 shadow-lg rounded mb-5 mt-4">
+      <h1 style="margin-bottom: 30px; margin-top: 25px; font-size: 180%">
+        Mensajes del formulario:
+      </h1>
+      {% if mensajecontacto_list %}
+      <table
+        class="table table-bordered table-striped mx-auto mt-4"
+        style="margin-bottom: 25px;"
+      >
+        <thead class="thead-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Comentario</th>
+            <th>¿Con copia?</th>
+          </tr>
+        </thead>
+        {% for mensaje in mensajecontacto_list %}
+        <tr>
+          <td>{{ mensaje.nombre }}</td>
+          <td>{{ mensaje.correo }}</td>
+          <td>{{ mensaje.fono }}</td>
+          <td>{{ mensaje.comentario }}</td>
+          <td>{% if mensaje.cc_ami %} Sí {% else %} No {% endif %}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <p>¡No hay mensajes registrados en la base de datos!</p>
+      {% endif %}
+      <div>{% include 'sprint2/paginator.html' %}</div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".Login"
+    android:background="#9EBFE2">
+
+    <ImageView
+        android:id="@+id/loginIcon"
+        android:layout_width="250dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="-20dp"
+        android:contentDescription="@string/loginlogo"
+        app:srcCompat="@drawable/login_logo"
+        tools:srcCompat="@drawable/login_logo" />
+
+    <!-- Campo de Usuario -->
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="332dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:padding="8dp"
+        android:background="@color/white"
+        android:hint="@string/correo"
+        android:textColorHint="@color/black"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:minHeight="48dp" />
+
+    <!-- Campo de Contraseña -->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="331dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:padding="8dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <!-- Botón de Iniciar Sesión -->
+    <Button
+        android:id="@+id/btnLog"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:text="@string/sesion"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registrar"
+        android:text="¿No tienes cuenta? Registrate aquí."
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        />
+
+</LinearLayout>

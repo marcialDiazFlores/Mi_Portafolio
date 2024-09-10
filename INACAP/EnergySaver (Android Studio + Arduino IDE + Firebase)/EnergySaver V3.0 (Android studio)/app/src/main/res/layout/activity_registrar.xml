@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Registrar"
+    android:background="#9EBFE2">
+
+    <!-- Titulo -->
+    <TextView
+        android:id="@+id/textViewCrearUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="@string/crearUsu"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <!-- Campo de Correo -->
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="16dp"
+        android:hint="@string/correo"
+        android:padding="8dp"
+        android:inputType="textEmailAddress"
+        android:background="@color/white"
+        android:minHeight="48dp" />
+
+    <!-- Campo de Contraseña -->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:background="@color/white"
+        android:minHeight="48dp" />
+
+    <!-- Botón para Volver -->
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Confirmar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login"
+        android:gravity="center"
+        android:text="¿Ya tienes cuenta? Inicia sesión aquí."
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        />
+
+</LinearLayout>

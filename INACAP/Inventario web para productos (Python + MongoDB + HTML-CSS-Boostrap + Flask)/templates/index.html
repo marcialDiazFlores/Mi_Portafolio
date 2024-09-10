@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluacion sumativa 4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #C1C9D6;
+            opacity: 1;
+        }
+
+        .card {
+            background-color: #92a8d1;
+        }
+
+        input {
+            margin-top: 5px;
+        }
+
+        .card-header {
+            margin-top: 5px;
+            background-color: #434CCB;
+            height: 50px
+        }
+
+        label, small {
+            font-weight: bold;
+        }
+
+        h4 {
+            display: block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #B85057;
+            color: black;
+            style: light;
+            margin: 10px auto; /* Centra y ajusta los márgenes superior e inferior */
+            width: fit-content; /* Ajusta el ancho al contenido del encabezado */
+        }
+
+        h5 {
+            color: black;
+        }
+
+        #boton_editar {
+            margin-top: 15px;
+            background-color: #639162;
+        }
+
+        #boton_eliminar {
+            margin-top: 15px;
+        }
+
+        #form1 {
+            background-color: #8D9BB5;
+        }
+
+        #form2 * {
+            margin-top: 10px;
+        }
+
+        #guardar {
+            background-color: #639162;
+            margin-top: 6px;
+        }
+
+        #card_form2 {
+            background-color: #8D9BB5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!--Título de la aplicación web-->
+        <h4 class="text-center mt-4 mb-2">Inventario web de productos</h4>
+        <h4 class="text-center mt-4 mb-5" style="font-size: 120%">Evaluación sumativa 4 (bases de datos no relacionales)</h4>
+    </div>
+
+    <div class="container">
+        <!--Contenedores responsivos-->
+        <div class="row row-col-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2">
+             <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-header" style="margin-top: 0px">
+                        <h5 class="text-center" style="margin-top: 4px">Ingresar producto</h5>
+                    </div>
+                    <div class="card-body" id="form1">
+                        <!--El formulario sigue la ruta establecida en app.py (método POST) y ingresa datos a la BdD-->
+                        <form action="/products" method="POST">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control mb-3" name="name" placeholder="Nombre del producto">
+                            <label>Precio</label>
+                            <input type="text" class="form-control mb-3" name="price" placeholder="Precio del producto">
+                            <label>Cantidad</label>
+                            <input type="text" class="form-control mb-3" name="quantity" placeholder="Cantidad del producto">
+                            <label>Descripción</label>
+                            <input type="text" class="form-control mb-3" name="description" placeholder="Descripción del producto">
+                            <button class="btn btn-primary" type="submit" id="guardar">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+             </div>
+
+             <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header" style="margin-top: 0px">
+                        <h5 class="text-center" style="position: relative; top: 3px">Productos</h5>
+                    </div>
+                    <div class="card-body" id="card_form2">
+                        <ul class="list-group">
+                            <div class="row row-col-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2" style="margin-top: -7px">
+                                <!--Recorrer los registros almacenados en la BdD-->
+                                {% for product in products %}
+
+                                <div class="col mt-2">
+                                    <li class="list-group-item mb-1">
+                                        <!--El formulario ocupa la ruta de modificación de registros de app.py-->
+                                        <form action="/edit/{{product.name}}" method="POST" class="w-100" id="form2">
+                                            <div class="mt-1">
+                                                <small>Nombre</small>
+                                                <input type="text" class="form-control" value="{{product.name}}" name="name">
+                                            </div>
+                                            <div class="mt-1">
+                                                <small>Precio</small>
+                                                <input type="text" class="form-control" value="{{product.price}}" name="price">
+                                            </div>
+                                            <div class="mt-1">
+                                                <small>Cantidad</small>
+                                                <input type="text" class="form-control" value="{{product.quantity}}" name="quantity">
+                                            </div>
+                                            <div class="mt-1">
+                                                <small>Descripción</small>
+                                                <input type="text" class="form-control" value="{{product.description}}" name="description" title="{{product.description}}">
+                                            </div>
+                                            <button class="btn btn-primary" type="submit" id="boton_editar">Editar</button>
+                                            <a href="{{url_for('delete', product_name=product.name)}}" class="btn btn-primary" id="boton_eliminar" style="background-color: #d11a2a">Eliminar</a>
+                                        </form>
+                                    </li>
+                                </div>
+
+                                {% endfor %}
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+    
+</body>
+</html>

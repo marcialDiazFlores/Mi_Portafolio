@@ -1,0 +1,17 @@
+{% extends "sprint2/base.html" %}
+
+{% block title %}<title>Tienda de Productos - Cuentas</title>{% endblock %}
+{% block content %}
+    <h1>Lista de cuentas</h1>
+    {% if cuenta_list %}
+    <ul>
+      {% for cuenta in cuenta_list %}
+      <li>
+        <a href="{{ cuenta.id }}">{{ cuenta.nombre }} {{ cuenta.apellido }}</a> ({{cuenta.id}})
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>¡No hay cuentas registradas!</p>
+    {% endif %}
+{% endblock %}

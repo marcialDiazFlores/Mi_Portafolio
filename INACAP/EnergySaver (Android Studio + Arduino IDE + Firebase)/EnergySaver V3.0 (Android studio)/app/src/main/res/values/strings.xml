@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">EnergySaver</string>
+    <string name="password">Contraseña</string>
+    <string name="correo">Ingrese Correo</string>
+    <string name="sesion">Iniciar Sesión</string>
+    <string name="volver">Volver</string>
+    <string name="loginlogo">loginLogo</string>
+    <string name="crearUsu">Crear Usuario</string>
+    <string name="menuPri">Menú Principal</string>
+    <string name="habitaciones">Habitaciones</string>
+    <string name="configuracion">Configuración</string>
+    <string name="configU">Configuración de usuario</string>
+    <string name="dispositivos">Dispositivos</string>
+    <string name="addRoom">Agregar Habitación</string>
+    <string name="searchRoom">Buscar Habitación</string>
+    <string name="listaRoom">Listado de Habitaciones</string>
+    <string name="guardar">Guardar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="listaHab">Lista de Habitaciones</string>
+    <string name="addDispo">Agregar Dispositivo</string>
+    <string name="searchDispo">Buscar Dispositivo</string>
+    <string name="listDispo">Lista de Dispositivos</string>
+    <string name="lista_de_dispositivos">Lista de Dispositivos</string>
+</resources>
